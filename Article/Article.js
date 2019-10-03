@@ -1,6 +1,6 @@
 /* This is the data we will be using to create our article components */
 /* Look over this data, then proceed to line 91*/
-const data = [
+var data = [
   {
     title: 'Lambda School Students: "We\'re the best!"',
     date: 'Nov 5th, 2018',
@@ -112,3 +112,87 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+// Article component creator
+function articleCreator(obj) {
+  const article = document.createElement('div');
+  article.classList.add('article');
+
+  // Article Heading
+  const articleH2 = document.createElement('h2');
+  articleH2.innerText = obj.title;
+  article.appendChild(articleH2);
+
+  // Article Date
+  const articleDate = document.createElement('p');
+  articleDate.classList.add('date');
+  articleDate.innerText = obj.date;
+  article.appendChild(articleDate);
+
+  // Article content (3 paragraphs)
+  const articlePara1 = document.createElement('p');
+  const articlePara2 = document.createElement('p');
+  const articlePara3 = document.createElement('p');
+  articlePara1.innerText = obj.firstParagraph;
+  articlePara2.innerText = obj.secondParagraph;
+  articlePara3.innerText = obj.thirdParagraph;
+  article.appendChild(articlePara1);
+  article.appendChild(articlePara2);
+  article.appendChild(articlePara3);
+
+  // Article expand button
+  const articleExpand = document.createElement('span');
+  articleExpand.classList.add('expandButton'); 
+  articleExpand.addEventListener('click', () => {
+    article.classList.toggle('article-open');
+  })
+  article.appendChild(articleExpand);
+
+  return article;
+}
+
+// Create new articles
+var newArticles = [{
+  title: 'Test Article Please Ignore',
+  date: 'October 2nd, 2019',
+  firstParagraph: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat diam vel eros tincidunt commodo. Quisque hendrerit enim vel arcu malesuada, in tincidunt metus venenatis. Duis non justo id eros egestas laoreet a quis nibh. Praesent et quam tincidunt, ornare ligula quis, semper velit. Sed eu rhoncus velit, in maximus erat. In bibendum orci vel felis fermentum condimentum. Phasellus magna turpis, fermentum vitae lorem id, blandit fermentum orci.`,
+
+  secondParagraph: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat diam vel eros tincidunt commodo. Quisque hendrerit enim vel arcu malesuada, in tincidunt metus venenatis. Duis non justo id eros egestas laoreet a quis nibh. Praesent et quam tincidunt, ornare ligula quis, semper velit. Sed eu rhoncus velit, in maximus erat. In bibendum orci vel felis fermentum condimentum. Phasellus magna turpis, fermentum vitae lorem id, blandit fermentum orci.`,
+
+  thirdParagraph: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat diam vel eros tincidunt commodo. Quisque hendrerit enim vel arcu malesuada, in tincidunt metus venenatis. Duis non justo id eros egestas laoreet a quis nibh. Praesent et quam tincidunt, ornare ligula quis, semper velit. Sed eu rhoncus velit, in maximus erat. In bibendum orci vel felis fermentum condimentum. Phasellus magna turpis, fermentum vitae lorem id, blandit fermentum orci.`
+},
+
+{
+  title: 'Test Article 2',
+  date: 'October 3rd, 2019',
+  firstParagraph: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat diam vel eros tincidunt commodo. Quisque hendrerit enim vel arcu malesuada, in tincidunt metus venenatis. Duis non justo id eros egestas laoreet a quis nibh. Praesent et quam tincidunt, ornare ligula quis, semper velit. Sed eu rhoncus velit, in maximus erat. In bibendum orci vel felis fermentum condimentum. Phasellus magna turpis, fermentum vitae lorem id, blandit fermentum orci.`,
+
+  secondParagraph: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat diam vel eros tincidunt commodo. Quisque hendrerit enim vel arcu malesuada, in tincidunt metus venenatis. Duis non justo id eros egestas laoreet a quis nibh. Praesent et quam tincidunt, ornare ligula quis, semper velit. Sed eu rhoncus velit, in maximus erat. In bibendum orci vel felis fermentum condimentum. Phasellus magna turpis, fermentum vitae lorem id, blandit fermentum orci.`,
+
+  thirdParagraph: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat diam vel eros tincidunt commodo. Quisque hendrerit enim vel arcu malesuada, in tincidunt metus venenatis. Duis non justo id eros egestas laoreet a quis nibh. Praesent et quam tincidunt, ornare ligula quis, semper velit. Sed eu rhoncus velit, in maximus erat. In bibendum orci vel felis fermentum condimentum. Phasellus magna turpis, fermentum vitae lorem id, blandit fermentum orci.`
+},
+
+{
+  title: 'Test Article 3',
+  date: 'October 4th, 2019',
+  firstParagraph: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat diam vel eros tincidunt commodo. Quisque hendrerit enim vel arcu malesuada, in tincidunt metus venenatis. Duis non justo id eros egestas laoreet a quis nibh. Praesent et quam tincidunt, ornare ligula quis, semper velit. Sed eu rhoncus velit, in maximus erat. In bibendum orci vel felis fermentum condimentum. Phasellus magna turpis, fermentum vitae lorem id, blandit fermentum orci.`,
+
+  secondParagraph: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat diam vel eros tincidunt commodo. Quisque hendrerit enim vel arcu malesuada, in tincidunt metus venenatis. Duis non justo id eros egestas laoreet a quis nibh. Praesent et quam tincidunt, ornare ligula quis, semper velit. Sed eu rhoncus velit, in maximus erat. In bibendum orci vel felis fermentum condimentum. Phasellus magna turpis, fermentum vitae lorem id, blandit fermentum orci.`,
+
+  thirdParagraph: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat diam vel eros tincidunt commodo. Quisque hendrerit enim vel arcu malesuada, in tincidunt metus venenatis. Duis non justo id eros egestas laoreet a quis nibh. Praesent et quam tincidunt, ornare ligula quis, semper velit. Sed eu rhoncus velit, in maximus erat. In bibendum orci vel felis fermentum condimentum. Phasellus magna turpis, fermentum vitae lorem id, blandit fermentum orci.`
+}]
+
+// Add new articles to data
+data = data.concat(newArticles);
+
+// Map over the articles data using article creator
+var createdArticles = data.map(articleCreator);
+
+// Select the articles div
+var articles = document.querySelector('.articles');
+
+// Add the created articles to the articles div
+createdArticles.forEach(element => {
+  articles.appendChild(element);
+});
+
