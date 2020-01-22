@@ -33,3 +33,49 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+
+// Select Menu Button
+var menuButton = document.querySelector('.menu-button')
+
+// Menu component creator
+function menuCreator(arr) {
+  const menu = document.createElement('div');
+  menu.classList.add('menu');
+
+  const menuUL = document.createElement('ul');
+  menuUL.classList.add('menu--open');
+
+  arr.forEach(element => {
+    var newLi = document.createElement('li');
+    newLi.textContent = element;
+    menuUL.appendChild(newLi);
+  });
+  menu.appendChild(menuUL);
+
+  menuButton.addEventListener("click", () => {
+    menuUL.classList.toggle('menu--open');
+  })
+
+  return menu;
+}
+
+// Add menu component to body button
+var body = document.querySelector('body');
+body.appendChild(menuCreator(menuItems));
+
+// GSAP toggle menu
+var openClose = TweenLite.from(".menu", 0.1, {
+  width: 0,
+  paused: true,
+  reversed: true
+});
+
+menuButton.addEventListener("click", toggleMenu);
+
+function toggleMenu() {
+  if (openClose.reversed()) {
+    openClose.play();
+  } else {
+    openClose.reverse();
+  }
+}
